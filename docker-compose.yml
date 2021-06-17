@@ -1,0 +1,34 @@
+version: "3.4"
+services:
+  interview-db:
+    image: postgres:11
+    container_name: interview-db
+    restart: always
+    ports:
+      - 10432:5432
+    environment:
+      POSTGRES_DB: "interview_development"
+      POSTGRES_PASSWORD: "interview2021!"
+    networks:
+      - interview-network
+  interview-web:
+    container_name: interview-web
+    restart: always
+    build: .
+    command: bundle exec rails s -p 9090 -b '0.0.0.0' -P /dev/null
+    volumes:
+      - .:/app
+    ports:
+      - "9292:9090"
+    depends_on:
+      - interview-db
+    networks:
+      - interview-network
+volumes:
+  gem_cache:
+    driver: local
+  node_modules:
+    driver: local
+networks:
+  interview-network:
+    driver: bridge
