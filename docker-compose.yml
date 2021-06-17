@@ -1,5 +1,10 @@
 version: "3.4"
 services:
+  interview-redis:
+    container_name: interview-redis
+    image: redis
+    networks:
+      - interview-network
   interview-db:
     image: postgres:11
     container_name: interview-db
@@ -22,6 +27,7 @@ services:
       - "9292:9090"
     depends_on:
       - interview-db
+      - interview-redis
     networks:
       - interview-network
 volumes:

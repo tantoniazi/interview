@@ -129,6 +129,25 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.3.1)
+    redis-actionpack (5.2.0)
+      actionpack (>= 5, < 7)
+      redis-rack (>= 2.1.0, < 3)
+      redis-store (>= 1.1.0, < 2)
+    redis-activesupport (5.2.1)
+      activesupport (>= 3, < 7)
+      redis-store (>= 1.3, < 2)
+    redis-namespace (1.8.1)
+      redis (>= 3.0.4)
+    redis-rack (2.1.3)
+      rack (>= 2.0.8, < 3)
+      redis-store (>= 1.2, < 2)
+    redis-rails (5.0.2)
+      redis-actionpack (>= 5.0, < 6)
+      redis-activesupport (>= 5.0, < 6)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.9.0)
+      redis (>= 4, < 5)
     simple_command (0.1.0)
     spring (2.1.1)
     sprockets (4.0.2)
@@ -158,6 +177,9 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.3, >= 6.1.3.2)
+  redis
+  redis-namespace
+  redis-rails
   simple_command
   spring
   tzinfo-data

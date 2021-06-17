@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_152054) do
+ActiveRecord::Schema.define(version: 2021_06_17_153850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ceps", force: :cascade do |t|
+    t.string "cep"
+    t.string "logradouro"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "localidade"
+    t.string "uf"
+    t.string "ibge"
+    t.string "gia"
+    t.string "ddd"
+    t.string "siafi"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
